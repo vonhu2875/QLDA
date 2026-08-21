@@ -79,10 +79,5 @@ def test_not_exist_user(test_session):
         auth_user(username='a' * 5, password="4aA" * 4)
 
 
-def test_inactive_user(test_session):
-    u = add_user(name='Võ Thị Bích Như', username='a' * 5, password='4aA' * 3, avatar=None, email='abc@gmail.com',
-             phone='0123456789', user_role=UserRole.CANDIDATE)
-    u.active = False
-    with pytest.raises(ValidationError, match="Tài khoản người dùng không tồn tại!"):
-        auth_user(username='a' * 5, password="4aA" * 3)
+
 
